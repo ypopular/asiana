@@ -1,0 +1,479 @@
+@charset "utf-8";
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+a{
+     text-decoration: none;
+}
+ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+li{
+    list-style: none;
+}
+/* -----------------------------header-------------------------- */
+header{
+    width: 100%;
+    height: 123px;
+    float: left;
+}
+#header_top{
+    width: 1180px;
+    height: 40px;
+    margin: auto;
+}
+#header_bottom{
+    width: 1180px;
+    height: 83px;
+    margin: auto;
+    position: relative;
+}
+#utill_menu{
+    width: 471px;
+    height: 40px;
+    float: right;
+}
+#utill_menu  ul li{
+    float: left;
+    display: block;
+    width: 50px;
+    height: 20px;
+    border-right: 1px solid #ccc;
+    margin-right: 10px;
+    margin-top: 5px;
+}
+#utill_menu  ul li:first-child{
+    margin-left: 260px;
+}
+#utill_menu  ul li:last-child{
+    width: 70px;
+    height: 20px;
+    border-right: none;
+}
+#utill_menu a{
+    color: #222;
+    font-size: 13px;
+}
+#top_logo{
+    float: left;
+    width: 187px;
+    height: 35px;
+    margin-top: 15px;
+}
+#nav{
+    width: 545px;
+    height: 83px;
+    float: left;
+    margin-left: 100px;
+}
+#nav ul li{
+    width: 120px;
+    height: 83px;
+    float: left;
+}
+#nav ul li a{
+    width: 120px;
+    height: 78px;
+    display: block;
+    color: black;
+    font-size: 18px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 83px;
+}
+#nav_right{
+    width: 162px;
+    height: 31px;
+    float: left;
+    margin-left: 185px;
+    margin-top: 30px;
+}
+#chatbot_area{
+    width: 70px;
+    height: 36px;
+    float: left;
+}
+#myasiana_area{
+    width: 50px;
+    height: 31px;
+    float: left;
+    padding-top: 5px;
+}
+#search_area{
+    width: 35px;
+    height: 31px;
+    float: left;
+    padding-top:5px;
+}
+#secret_nav_wrap{
+    width: 100%;
+    height: 300px;
+    position: absolute;
+    left: 50%;
+    top:123px;
+    transform: translateX(-50%);
+    border-top: 1px solid #615f5f;
+    background-color: #fff;
+    z-index: 100;
+   display: none;
+}
+#secret_nav{
+    width: 1180px;
+    height: 300px;
+    margin: auto;
+}
+#secret_nav a:hover{
+    text-decoration: underline;
+    color: red;
+}
+.nav_title_active{
+    border-bottom: 5px solid red;
+}
+#reservation_nav_wrap{
+    width: 100%;
+    height: 300px;
+    display: none;
+}
+#travel_preparation_nav_wrap{
+    width: 100%;
+    height: 300px;
+    display: none;
+}
+#travel_nav_wrap{
+    width: 100%;
+    height: 300px;
+    display: none;
+}
+#asiana_club_nav_wrap{
+    width: 100%;
+    height: 300px;
+    /* display: none; */
+}
+.nav_box{
+    width: 230px;
+    height: 260px;
+    float: left;
+    margin-top: 20px;
+    border-left: 1px solid #ccc;
+}
+.nav_box a{
+    color: #666;
+}
+.nav_box ul li{
+    margin-left: 15px;
+    margin-bottom: 5px;
+}
+.nav_box ul li:first-child{
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+.nav_box ul li:first-child a{
+    color: black;
+}
+.asiana_club_nav_box{
+    width: 355px;
+    height: 260px;
+    float: left;
+    margin-top: 20px;
+    border-left: 1px solid #ccc;
+}
+.asiana_club_nav_box a{
+    color: #666;
+}
+.asiana_club_nav_box ul li{
+    margin-left: 15px;
+    margin-bottom: 5px;
+}
+.asiana_club_nav_box ul li:first-child{
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+.asiana_club_nav_box ul li:first-child a{
+    color: black;
+}
+/* -----------------------------footer-------------------------- */
+footer{
+    width: 100%;
+    height: 485px;
+    background: #252523;
+    float: left;
+}
+#footer_wrap{
+    width: 1180px;
+    height: 485px;
+    margin: auto;
+}
+#footer_top{
+    width: 1180px;
+    height: 197px;
+}
+#footer_bottom{
+    width: 1180px;
+    height: 290px;
+    position: relative;
+}
+#footer_top_left{
+    width: 393px;
+    height: 97px;
+    float: left;
+    margin-top: 50px;
+}
+#footer_top h4{
+    float: left;
+    color: #fff;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+#left_box{
+    float: left;
+    width: 393px;
+    height: 63px;
+}
+#left_box ul{
+    width: 196px;
+    height: 63px;
+    float: left;
+}
+#left_box a{
+    font-size: 14px;
+    color: #909090;
+    padding-right: 5px;
+}
+#footer_top_middle{
+    width: 393px;
+    height: 97px;
+    float: left;
+    margin-top: 50px;
+}
+#middle_box{
+    float: left;
+    width: 393px;
+    height: 63px;
+}
+#middle_box ul{
+    width: 196px;
+    height: 63px;
+    float: left;
+}
+#middle_box a{
+    font-size: 14px;
+    color: #909090;
+    padding-right: 5px;
+}
+#footer_top_right{
+    width: 393px;
+    height: 97px;
+    float: left;
+    margin-top: 50px;
+}
+#right_box{
+    float: left;
+    width: 393px;
+    height: 63px;
+}
+#right_box ul{
+    width: 196px;
+    height: 63px;
+    float: left;
+}
+#right_box a{
+    font-size: 14px;
+    color: #909090;
+    padding-right: 5px;
+}
+address{
+    width: 1180px;
+    height: 70px;
+}
+address ul li{
+    font-size: 13px;
+    color: #909090;
+    margin-bottom: 10px;
+}
+address ul li span{
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+}
+#copy_area{
+    width: 1180px;
+    height: 25px;
+}
+#copy_area span{
+    font-size: 14px;
+    color: #909090;
+}
+#special_logo{
+    width: 1180px;
+    height: 63px;
+    margin-top: 28px;
+}
+#logo01{
+    margin-top: 20px;
+    width: 250px;
+    height: 23px;
+    background: url(../img/mainicon.png);
+    background-position: 0 -145px;
+    float: left;
+}
+#logo01 a{
+    width: 250px;
+    height: 23px;
+    display: block;
+}
+#logo02{
+    width: 175px;
+    height: 60px;
+    background: url(../img/new_logo_skytrax_ko.png)  0 0 no-repeat;
+    background-size: auto 60px;
+    float: left;
+    margin-left: 30px;
+
+}
+#logo03{
+    width: 163px;
+    height: 55px;
+    background: url(../img/mainicon.png);
+    background-repeat: no-repeat;
+    background-position: 0 -294px;
+    float: left;
+    margin-left: 30px;
+}
+#logo04{
+    width: 98px;
+    height: 63px;
+    float: left;
+    margin-left: 30px;
+}
+#sns_wrap{
+    width: 200px;
+    height: 187px;
+    position: absolute;
+    right: 0;
+    bottom: 104px;
+}
+#sns_list{
+    width: 200px;
+    height: 34px;
+}
+#sns_list ul{
+    width: 200px;
+    height: 34px;
+    display: flex;
+    justify-content: space-between;
+}
+.hidden{
+    font-size: 0;
+}
+.youtube{
+    width: 30px;
+    height: 30px;
+    display: block;
+    background: url(../img/mainicon.png);
+    background-repeat: no-repeat;
+    background-position: 0px -230px;
+}
+.youtube:hover{
+    background-position: 0px -261px;
+}
+.facebook{
+    width: 30px;
+    height: 30px;
+    display: block;
+    background: url(../img/mainicon.png);
+    background-repeat: no-repeat;
+    background-position: -31px -230px;
+}
+.facebook:hover{
+    background-position: -31px -261px;
+}
+.instargram{
+    width: 30px;
+    height: 30px;
+    display: block;
+    background: url(../img/mainicon.png);
+    background-repeat: no-repeat;
+    background-position: -124px -230px;
+}
+.instargram:hover{
+    background-position: -124px -261px;
+}
+.twitter{
+    width: 30px;
+    height: 30px;
+    display: block;
+    background: url(../img/mainicon.png);
+    background-repeat: no-repeat;
+    background-position: -62px -230px;
+}
+.twitter:hover{
+    background-position: -62px -261px;
+}
+.kakaostory{
+    width: 30px;
+    height: 30px;
+    display: block;
+    background: url(../img/mainicon.png);
+    background-repeat: no-repeat;
+    background-position: -155px -230px;
+}
+.kakaostory:hover{
+    background-position: -155px -261px;
+}
+#qr_code{
+    width: 200px;
+    height: 120px;
+    margin-top: 33px;
+}
+#qr_left{
+    width: 90px;
+    height: 120px;
+    float: left;
+    margin-right: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+}
+#qr_right{
+    width: 90px;
+    height: 120px;
+    float: left;
+    background-color: #fff;
+    border-radius: 5px;
+}
+#android_qr{
+    margin-left: 15px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    width: 60px;
+    height: 60px;
+    float: left;
+    background: url(../img/mainicon.png);
+    background-repeat: no-repeat;
+    background-position: -279px -219px;
+}
+#iphone_qr{
+    margin-left: 15px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    width: 60px;
+    height: 60px;
+    float: left;
+    background: url(../img/mainicon.png);
+    background-repeat: no-repeat;
+    background-position: -340px -219px;
+}
+#qr_code img{
+    float: left;
+    width: 90px;
+    height: 30px;
+}
+#footer_top a:hover{
+    text-decoration: underline;
+    color: red;
+}

@@ -1,0 +1,438 @@
+@charset "utf-8";
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+a{
+     text-decoration: none;
+}
+ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+li{
+    list-style: none;
+}
+#visual_big_wrap{
+    width: 100%;
+    height: 600px;
+    float: left;
+    display: block;
+}
+#visual_wrap{
+    width: 100%;
+    height: 600px;
+    margin: auto;
+    position: relative;
+    overflow: hidden;
+}
+.visual{
+    width: 100%;
+    height: 600px;
+    position: absolute;
+}
+.visual ul li{
+    width: 100%;
+    height: 600px;
+    position: absolute;
+}
+.visual ul li img{
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+}
+
+.btn01 {width: 80px; height: 80px; background-color: rgba(0,0,0,.5); color: #fff; position: absolute; top: 50%; margin-top: -20px; cursor: pointer; font-size: 20px; z-index: 100;
+    border-radius: 50%;
+}
+.prev {left: 13%;}
+.next {right: 15%;}
+.btn:hover {background: rgba(0,0,0,.8);}
+.disabled {display: none;}
+
+.indicator {width: 302px; height: 43px; position: absolute;
+     bottom: -18%;
+     left: 0%;
+     background-color: rgba(0,0,0,.5); z-index: 100; }
+.indicator ul {display: flex; justify-content: center;
+float: left;
+margin-top: 3px;
+margin-left: 5px;
+
+}
+.indicator ul li {
+    width: 40px; height: 35px; margin: 0 4px; cursor: pointer; opacity: .5; box-shadow: 0 0 10px rgba(0,0,0,.5); transition: .5s;
+
+}
+.indicator ul li img {width: 100%; height: 100%; object-fit: cover;}
+.indicator ul li.active {opacity: 1;}
+
+.playbtn {width: 50px; height: 20px; position: absolute; right: 48px; bottom: -8px;}
+.play, .pause {width: 20px; height: 20px; background-color: rgba(0,0,0,.5); color: #fff; cursor: pointer;}
+
+#ex_wrap{
+    width: 400px;
+    height: 60px;
+    position: absolute;
+    bottom: 30%;
+     left: 19%;
+}
+#ex_small_wrap{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+#slide01{
+    width: 500px;
+    height: 300px;
+    position: absolute;
+    left: 16.5%;
+    bottom: 37%;
+    display: none;
+}
+#slide02{
+    width: 900px;
+    height: 600px;
+    position: absolute;
+    left: 0%;
+    bottom: 4px;
+   background-image: url(../img/slider/slide02_left.png);
+    display: none;
+}
+#slide03{
+    width: 900px;
+    height: 600px;
+    position: absolute;
+    left: 0%;
+    bottom: 4px;
+   background-image: url(../img/slider/slide03_left.png);
+    display: none;
+}
+#slide04{
+    width: 900px;
+    height: 600px;
+    position: absolute;
+    left: 0%;
+    bottom: 4px;
+   background-image: url(../img/slider/slide04_left.png);
+    display: none;
+}
+#slide05{
+    width: 900px;
+    height: 600px;
+    position: absolute;
+    left: 0%;
+    bottom: 4px;
+   background-image: url(../img/slider/slide05_left.png);
+    display: none;
+}
+#slide06{
+    width: 900px;
+    height: 600px;
+    position: absolute;
+    left: 0%;
+    bottom: 4px;
+   background-image: url(../img/slider/slide06_left.png);
+    display: none;
+}
+#slide01 h1{
+    margin-top: 100px;
+    color: #fff;
+    float: left;
+    margin-left: 55px;
+}
+#slide01 h3{
+    margin-left: 55px;
+    margin-top: 15px;
+    color :#fff;
+    float: left;
+}
+.contain_wrap{
+    position: relative;
+}
+/* ---------------------quick_reservation_wrap-------------- */
+#quick_reservation_wrap{
+    width: 100%;
+    height: 182px;
+    float: left;
+    position: relative;
+}
+#quick_reservation{
+    width: 1280px;
+    height: 182px;
+    margin: auto;
+    box-shadow: 5px 15px 20px 1px #d0d0d0;
+}
+#quick_title{
+    width: 1280px;
+    height: 65px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -65px;
+    z-index: 1000;
+}
+#flight_booking{
+    width: 190px;
+    height: 65px;
+    float: left;
+    background-color: rgba(211,10,20,.8);
+    border-radius: 10px 10px 0 0;
+    cursor: pointer;
+}
+#reservation_inquiry{
+    width: 190px;
+    height: 65px;
+    float: left;
+    background-color: rgba(124,6,50,.8);
+    border-radius: 10px 10px 0 0;
+    cursor: pointer;
+}
+#check_in{
+    width: 190px;
+    height: 65px;
+    float: left;
+    background-color: rgba(34,42,115,.8);
+    border-radius: 10px 10px 0 0;
+    cursor: pointer;
+}
+#hotel_car_rental{
+    width: 190px;
+    height: 65px;
+    float: left;
+    background: rgba(100,90,80,.8);
+    border-radius: 10px 10px 0 0;
+    cursor: pointer;
+}
+#flight_booking_icon{
+    width: 30px;
+    height: 30px;
+    display: block;
+    background-image: url(../img/mainicon.png);
+    background-position: 4px -81px;
+    float: left;
+    margin-left: 15px;
+    margin-top: 20px;
+}
+#flight_booking p{
+    float: left;
+    color: #fff;
+    font-weight: 700;
+    font-size: 18px;
+    margin-left: 10px;
+    margin-top: 20px;
+}
+#reservation_inquiry_icon{
+    width: 23px;
+    height: 23px;
+    display: block;
+    background-image: url(../img/mainicon.png);
+    background-position: -26px -81px;
+    float: left;
+    margin-left: 30px;
+    margin-top: 20px;
+}
+#reservation_inquiry p{
+    float: left;
+    color: #fff;
+    font-weight: 700;
+    font-size: 18px;
+    margin-left: 10px;
+    margin-top: 20px;
+}
+#check_in_icon{
+    width: 40px;
+    height: 23px;
+    display: block;
+    background-image: url(../img/mainicon.png);
+    background-position: -50px -81px;
+    float: left;
+    margin-left: 40px;
+    margin-top: 20px;
+}
+#check_in p{
+    float: left;
+    color: #fff;
+    font-weight: 700;
+    font-size: 18px;
+    margin-left: 10px;
+    margin-top: 20px;
+}
+#hotel_car_rental_icon{
+    width: 38px;
+    height: 25px;
+    background-position: -119px -81px;
+    display: block;
+    background-image: url(../img/mainicon.png);
+    float: left;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+#hotel_car_rental p{
+    float: left;
+    color: #fff;
+    font-weight: 700;
+    font-size: 18px;
+    margin-left: 10px;
+    margin-top: 20px;
+}
+body.dark-overlay {
+    background-color: rgba(0, 0, 0, 0.5); /* Adjust the opacity as desired */
+    overflow: hidden;
+  }
+.dark{
+    filter: brightness(0.5);
+}
+#flight_booking_zoon{
+    width: 1280px;
+    height: 182px;
+    background-color: aqua;
+}
+#check_in_zone{
+    width: 1280px;
+    height: 182px;
+    background-color: rgb(33, 170, 56);
+    display: none;
+}
+#hotel_car_rental_zone{
+    width: 1280px;
+    height: 182px;
+    background-color: rgb(167, 180, 43);
+    display: none;
+}
+.quick_active{
+    background-color: #fff !important;
+}
+.quick_icon_active{
+    background-position-y: -109px !important;
+}
+.quick_p_active{
+    color: #d8041d !important;
+}
+/* -----------------------carousel_wrap----------------------------------- */
+#recommend_travel{
+    width: 100%;
+    height: 250px;
+    float: left;
+}
+#recommend_title{
+    width: 1208px;
+    height: 250px;
+    margin: auto;
+}
+#recommend_travel h2{
+   padding-top: 130px;
+   padding-left: 50px;
+    margin: auto;
+    font-size: 38px;
+}
+#carousel_big_wrap{
+    width: 100%;
+    height: 390px;
+    float: left;
+}
+#carousel_small_wrap{
+    width: 1520px;
+    height: 390px;
+    margin: auto;
+    position: relative;
+}
+#carousel{
+    width: 1520px;
+    height: 390px;
+    margin: auto;
+   overflow: hidden;
+}
+#carousel_slider{
+    width: 2808px;
+    height: 390px;
+}
+.slide_item{
+    width: 272px;
+    height: 390px;
+    margin-right: 40px;
+    float: left;
+    position: relative;
+}
+.explain_wrap{
+    width: 272px;
+    height: 120px;
+    position: absolute;
+    background-color: rgba(0,0,0,.7);
+    left: 0;
+    bottom: 0;
+}
+.explain{
+    width: 230px;
+    height: 80px;
+    margin: auto;
+    margin-top: 20px;
+}
+.slie_item img{
+    width: 272px;
+    height: 390px;
+}
+#carousel_prev{
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    left: -3%;
+    top: 50%;
+    cursor: pointer;
+    border-radius: 100%;
+    box-shadow: 5px 10px 25px 1px #7b7777;
+    background-color: #fff;
+    border: 2px solid #000;
+    font-size: 30px;
+    transform: translateY(-50%);
+    z-index: 100;
+}
+#carousel_next{
+    font-size: 30px;
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    right: -3%;
+    top: 50%;
+    cursor: pointer;
+    border-radius: 100%;
+    box-shadow: 5px 10px 25px 1px #7b7777;
+    background-color: #fff;
+    border: 2px solid #000;
+    transform: translateY(-50%);
+}
+.explain span{
+    color: #fff;
+    font-weight: 700;
+}
+.arrow_round{
+    display: inline-block;
+    width: 19px;
+    height: 7px;
+    margin: 6px 2px 0;
+    margin-bottom: 3px;
+    background: url(../img/mainicon.png);
+    background-position: -475px -31px;
+}
+.one_way_round{
+    margin-top: 6px;
+    margin-bottom: 4px;
+}
+.one_way_round span{
+    font-weight: 500;
+}
+.num{
+    font-size: 20px;
+    color: #ff5458 !important;
+    font-weight: bold;
+}
+#ext_service_big_wrap{
+    width: 100%;
+    height: 605px;
+    background-color: #7b7777;
+    float: left;
+    margin-top: 100px;
+    background: url(../img/ext_img.jpeg);
+}
