@@ -71,21 +71,21 @@ $(function(){
     goToSlide(currentIdx);
 
 
-    // 내비게이션 버튼 클릭 이벤트
-    nav.click(function(){
-    // .btn을 클릭하면 if-else문을 통해서 그 버튼이 이전/다음 여부를 확인한 다음 그것에 맞는 코드를 실행
+    // // 내비게이션 버튼 클릭 이벤트
+    // nav.click(function(){
+    // // .btn을 클릭하면 if-else문을 통해서 그 버튼이 이전/다음 여부를 확인한 다음 그것에 맞는 코드를 실행
 
-        if( $(this).hasClass("prev") ) {
+    //     if( $(this).hasClass("prev") ) {
         
-            goToSlide(currentIdx - 1);
+    //         goToSlide(currentIdx - 1);
 
-        } else {
+    //     } else {
 
-            goToSlide(currentIdx + 1);
+    //         goToSlide(currentIdx + 1);
 
-        }
+    //     }
 
-    });
+    // });
 
 
 
@@ -144,7 +144,7 @@ $(function(){
     });
 
     var timer;
-    var isWindowActive = true;
+    var isAutoPlayPaused = false;
     
     // 오토플레이 실행 함수
     function autoPlay() {
@@ -152,40 +152,70 @@ $(function(){
         clearInterval(timer);
     
         timer = setInterval(function(){
-            if (isWindowActive) {
+            if (!isAutoPlayPaused) {
                 var nextIndex = (currentIdx + 1) % slideCount;
                 goToSlide(nextIndex);
             }
-        }, 3000); // 5초에 한 번씩 슬라이드가 변경되도록 설정 (기존보다 2초를 더 길게 설정)
+        }, 4000); // 4초에 한 번씩 슬라이드가 변경되도록 설정 (기존과 같이 4초로 설정)
     }
     
-    // 오토플레이 해제 함수
-    function stopAutoPlay() {
+    // 오토플레이 일시정지 함수
+    function pauseAutoPlay() {
         clearInterval(timer);
+        isAutoPlayPaused = true;
     }
     
-    // 다른 창으로 이동했을 때 처리
-    document.addEventListener("visibilitychange", function() {
-        if (document.visibilityState === "visible") {
-            isWindowActive = true;
-        } else {
-            isWindowActive = false;
+    // 오토플레이 재시작 함수
+    function resumeAutoPlay() {
+        isAutoPlayPaused = false;
+        autoPlay();
+    }
+    // visibilitychange 이벤트 핸들러
+document.addEventListener("visibilitychange", function() {
+    if (document.visibilityState === "visible") {
+        // 슬라이드가 다시 보이는 상태일 때 오토플레이 재시작
+        resumeAutoPlay();
+    } else {
+        // 슬라이드가 보이지 않는 상태일 때 오토플레이 일시정지
+        pauseAutoPlay();
+    }
+});
+    
+    $(".play").click(function(){
+        if (!isAutoPlayPaused && !overlapClick()) {
+            autoPlay();
+            console.log(overlapClickFlag);
         }
     });
-
-   
-
-    // 재생, 일시정지 버튼 이벤트
-    $(".play").click(function(){
-        if( overlapClick() ) return;    // 플레이 버튼을 누를 때마다 if문을 이용해서 값을 체크해서 실행여부를 따짐
-        autoPlay();
-        console.log(overlapClickFlag);
-    });
-
+    
     $(".pause").click(function(){
-        stopAutoPlay();                 // 일시정지 버튼을 클릭하면 먼저 스탑시킨 다음
-        overlapClickFlag = false;       // 플래그 변수의 값을 다시 false로 저장시켜 이후 플레이 버튼을 클릭했을 때 값을 초기화 시킨다.
-        console.log(overlapClickFlag);
+        if (!isAutoPlayPaused) {
+            pauseAutoPlay();
+            overlapClickFlag = false;
+            console.log(overlapClickFlag);
+        }
+    });
+    
+    $(".next").click(function(){
+        if (!isAutoPlayPaused) {
+            // 다음 슬라이드로 이동
+            var nextIndex = (currentIdx + 1) % slideCount;
+            goToSlide(nextIndex);
+    
+            // 오토플레이 재시작
+            resumeAutoPlay();
+        }
+    });
+    
+    $(".prev").click(function(){
+        if (!isAutoPlayPaused) {
+            // 이전 슬라이드로 이동
+            var prevIndex = (currentIdx - 1 + slideCount) % slideCount;
+            goToSlide(prevIndex);
+    
+            // 오토플레이 재시작
+            resumeAutoPlay();
+        }
     });
 
 
@@ -218,13 +248,17 @@ $(function(){
     $(document).ready(function() {
         $(".play").click()   
         });
-    
+    // ------------------------------------------------------------
         var isQuickReservationOpen = false;
-
+      
+        
         $("#quick_reservation_wrap").click(function(e) {
           e.stopPropagation(); // Prevent the click event from propagating to the document
+         
+          $("#boarding_date").css('pointer-events', 'auto');
       
           if (!isQuickReservationOpen) {
+            
             // Move the #quick_reservation_wrap 600px upwards
             $(this).animate({
               top: "-=600px"
@@ -233,6 +267,7 @@ $(function(){
                 scrollTop: 0
               }, 500);
             // Darken the background
+        
             $("body").addClass("dark-overlay");
             $("#visual_big_wrap").addClass("dark");
       
@@ -241,7 +276,13 @@ $(function(){
         });
       
         $(document).click(function(e) {
+            $("#boarding_date").css('pointer-events', 'none');
+            $("#passenger_secret").hide();
+            $("#main_go_secret_menu_wrap").hide();
+            $("#destination_secret").hide();
+            $("#seat_class_secret").hide();
           if (!$(e.target).closest("#quick_reservation_wrap").length && isQuickReservationOpen) {
+           
             // Restore the original state of #quick_reservation_wrap
             $("#quick_reservation_wrap").animate({
               top: "0"
@@ -261,8 +302,8 @@ $(function(){
             $("#flight_booking").addClass('quick_active');
             $("#flight_booking_icon").addClass('quick_icon_active');
             $("#flight_booking p").addClass('quick_p_active');
-            $("#flight_booking_zoon").show();
-            $("#flight_booking_zoon").siblings().hide();
+            $("#flight_booking_zone").show();
+            $("#flight_booking_zone").siblings().hide();
         });
 
         $("#check_in").on("click",function(){
@@ -286,6 +327,19 @@ $(function(){
             $("#hotel_car_rental_zone").show();
             $("#hotel_car_rental_zone").siblings().hide();
         });
+
+        $("#goback_select").on("click",function(){
+            $("#goback_select").siblings().find('p').removeClass('select_active')
+            $("#goback_select p").addClass('select_active');
+            
+        });
+
+        $("#go_select").on("click",function(){
+            $("#go_select").siblings().find("p").removeClass('select_active');
+            $("#go_select p").addClass('select_active');
+            
+        });
+
 
         // -----------------------------------------------------
     
@@ -325,9 +379,267 @@ $(function(){
                 $("#carousel_slider").animate({ "margin-left": moveX }, 300);
             });
         });
+    // ------------------------------------------------------------
+    $("#world_air_menu li:nth-of-type(1)").on("click", function(){
+        $("#northeast_asia").siblings().hide();
+        $("#northeast_asia").show();
+    });
+    $("#world_air_menu li:nth-of-type(2)").on("click", function(){
+        $("#southeast_asia").siblings().hide();
+        $("#southeast_asia").show();
+    });
+    $("#world_air_menu li:nth-of-type(3)").on("click", function(){
+        $("#americas").siblings().hide();
+        $("#americas").show();
+    });
+    $("#world_air_menu li:nth-of-type(4)").on("click", function(){
+        $("#europe").siblings().hide();
+        $("#europe").show();
+    });
+    $("#world_air_menu li:nth-of-type(5)").on("click", function(){
+        $("#oceania").siblings().hide();
+        $("#oceania").show();
+    });
+    $("#world_air_menu li:nth-of-type(6)").on("click", function(){
+        $("#central_asia").siblings().hide();
+        $("#central_asia").show();
+    });
     
-       
+    $("#go_menu_table tbody tr td").on("click", function(){
+        let textPoint = $(this).find("span").html();
+        $("#go_station").val(textPoint);
+        $("#main_go_secret_menu_wrap").hide();
+    });
+    $("#world_air_secret_menu ul li").on("click", function(){
+        let textPoint = $(this).html();
+        $("#go_station").val(textPoint);
+        $("#main_go_secret_menu_wrap").hide();
+    });
 
+
+    $("#destination_air li:nth-of-type(1)").on("click", function(){
+        $("#korea").siblings().hide();
+        $("#korea").show();
+    });
+    $("#destination_air li:nth-of-type(2)").on("click", function(){
+        $("#northeast_asia2").siblings().hide();
+        $("#northeast_asia2").show();
+    });
+    $("#destination_air li:nth-of-type(3)").on("click", function(){
+        $("#southeast_asia2").siblings().hide();
+        $("#southeast_asia2").show();
+    });
+    $("#destination_air li:nth-of-type(4)").on("click", function(){
+        $("#americas2").siblings().hide();
+        $("#americas2").show();
+    });
+    $("#destination_air li:nth-of-type(5)").on("click", function(){
+        $("#europe2").siblings().hide();
+        $("#europe2").show();
+    });
+    $("#destination_air li:nth-of-type(6)").on("click", function(){
+        $("#oceania2").siblings().hide();
+        $("#oceania2").show();
+    });
+    $("#destination_air li:nth-of-type(7)").on("click", function(){
+        $("#central_asia2").siblings().hide();
+        $("#central_asia2").show();
+    });
+
+  
+
+    $("#destination_air_secret ul li").on("click", function(){
+        
+        let textPoint = $(this).html();
+        $("#destination").val(textPoint);
        
+        if($("#go_station").val() == $("#destination").val()){
+            $("#destination_secret").hide();
+            alert("출발지와 도착지가 같으면 안됩니다.");
+            $("#destination").val(null)
+        }else{
+            $("#destination_secret").hide();
+        }
+    });
+ 
+
+    $(document).ready(function() {
+
+        function updatePassengerText() {
+            let adult = parseInt($("#adult").val());
+            let young = parseInt($("#young").val());
+            let baby = parseInt($("#baby").val());
+    
+            let passengerText = '';
+            if (adult > 0) {
+                passengerText += '성인' + adult + ' ';
+            }
+            if (young > 0) {
+                passengerText += '소아' + young + ' ';
+            }
+            if (baby > 0) {
+                passengerText += '유아' + baby;
+            }
+    
+            $("#passenger").val(passengerText);
+        }
+
+
+    $("#adult_minus").on("click", function(){
+        if($("#adult").val() > 0){
+            if($("#baby").val() >= $("#adult").val()){
+                alert("유아의 숫자가 성인보다 많을 수 없습니다");
+                return false;
+            } else {
+                $("#adult").val(parseInt($("#adult").val()) - 1);
+                updatePassengerText();
+            }
+        } else {
+            return false;
+        }
+    });
+    $("#adult_plus").on("click", function(){
+        if($("#adult").val() < 5){
+            $("#adult").val(parseInt($("#adult").val()) + 1);
+            updatePassengerText();
+        } else {
+            return false;
+        }
+    });
+
+    $("#young_minus").on("click", function(){
+        if($("#young").val() > 0){
+            $("#young").val(parseInt($("#young").val()) - 1);
+            updatePassengerText();
+        } else {
+            return false;
+        }
+    });
+
+    $("#young_plus").on("click", function(){
+        if($("#young").val() < 5){
+            $("#young").val(parseInt($("#young").val()) + 1);
+            updatePassengerText();
+        } else {
+            return false;
+        }
+    });
+
+    $("#baby_minus").on("click", function(){
+        if($("#baby").val() > 0){
+            $("#baby").val(parseInt($("#baby").val()) - 1);
+            updatePassengerText();
+        } else {
+            return false;
+        }
+    });
+
+    $("#baby_plus").on("click", function(){
+        if($("#baby").val() < 5){
+            if($("#baby").val() >= $("#adult").val()){
+                alert("유아의 숫자가 성인보다 많을 수 없습니다");
+                return false;
+            } else {
+                $("#baby").val(parseInt($("#baby").val()) + 1);
+                updatePassengerText();
+            }
+        } else {
+            return false;
+        }
+    });
 
 });
+$("#go_station").on("click",function(){
+   if($("#destination") !="" || $("#destination") != null){
+    $("#destination").val(null);
+    $("#go_station").val(null);
+    $("#destination_secret").hide();
+    $("#passenger_secret").hide();
+    $("#seat_class_secret").hide();
+    $("#main_go_secret_menu_wrap").show();
+   }else{
+    $("#destination_secret").hide();
+    $("#passenger_secret").hide();
+    $("#seat_class_secret").hide();
+    $("#main_go_secret_menu_wrap").show();
+    $("#go_station").val(null);
+   }
+});
+$("#destination").on("click",function(){
+    if($("#go_station").val() == ""){
+        $("#passenger_secret").hide();
+        alert("출발지를 선택하세요");
+    }else{
+        $("#main_go_secret_menu_wrap").hide();
+        $("#seat_class_secret").hide();
+        $("#passenger_secret").hide();
+        $("#destination_secret").show();
+
+    }
+});
+$("#boarding_date").on("click",function(){
+    $("#seat_class_secret").hide();
+    $("#passenger_secret").hide();
+    $("#main_go_secret_menu_wrap").hide();
+    $("#destination_secret").hide();
+});
+$("#passenger").on("click",function(){
+    $("#seat_class_secret").hide();
+    $("#main_go_secret_menu_wrap").hide();
+    $("#destination_secret").hide();
+    $("#passenger_secret").show();
+});
+$("#seat_class").on("click",function(){
+    $("#passenger_secret").hide();
+    $("#main_go_secret_menu_wrap").hide();
+    $("#destination_secret").hide();
+    $("#seat_class_secret").show();
+});
+$("#select_passenger_check_btn").on("click",function(){
+
+    $("#passenger_secret").hide();
+});
+$("#seat_class_check_btn").on("click",function(){
+    $("#seat_class_secret").hide();
+});
+
+     $("#select_seat_class ul li").on("click",function(){
+        $(this).siblings().removeClass('seat_class_active');
+        $(this).addClass('seat_class_active');
+        
+     }); 
+
+if($("#go_station").val() != "" && $("#destination").val() != "" && $("#boarding_date").val() != "" && $("#passenger").val() != "" && $("#seat_class").val() != ""){
+    $("#go_check button").addClass('go_check_active');
+}else{
+    $("#go_check button").removeClass('go_check_active');
+}
+
+});
+
+var fp = flatpickr(document.getElementById("boarding_date"), {
+    'monthSelectorType': 'static',
+    'locale': 'ko',
+    'mode': 'range',
+  });
+  // 버튼 클릭 시 날짜 하루만 선택 가능하도록 설정
+  if($("#go_select_p").hasClass('select_active')){
+    var fp = flatpickr(document.getElementById("boarding_date"), {
+        'monthSelectorType' : 'static',
+        "locale": "ko",
+        "mode": "single"
+    });
+    
+ }else{
+    var fp = flatpickr(document.getElementById("boarding_date"), {
+        'monthSelectorType' : 'static',
+        "locale": "ko",
+        "mode": "range"
+    });
+ }
+ 
+ 
+
+
+
+  

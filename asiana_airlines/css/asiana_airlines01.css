@@ -181,6 +181,7 @@ margin-left: 5px;
     background-color: rgba(211,10,20,.8);
     border-radius: 10px 10px 0 0;
     cursor: pointer;
+    position: relative;
 }
 #reservation_inquiry{
     width: 190px;
@@ -285,10 +286,11 @@ body.dark-overlay {
 .dark{
     filter: brightness(0.5);
 }
-#flight_booking_zoon{
+#flight_booking_zone{
     width: 1280px;
     height: 182px;
-    background-color: aqua;
+    position: relative;
+    background-color: #fff;
 }
 #check_in_zone{
     width: 1280px;
@@ -310,6 +312,157 @@ body.dark-overlay {
 }
 .quick_p_active{
     color: #d8041d !important;
+}
+
+#goback_ul{
+    position: absolute;
+    left: 48px;
+    top: 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+#goback_ul li{
+    float: left;
+    width: 107px;
+    height: 46px;
+    background-color: #f3f3f3;
+    border-radius: 4px;
+}
+#goback_ul li p{
+    width: 107px;
+    height: 46px;
+    line-height: 46px;
+    text-align: center;
+    font-size: 15px;
+    color: #222;
+    border-radius: 4px;
+}
+.select_active{
+    background-color: #d60815;
+    color: #fff !important;
+}
+
+#select_travel{
+    width: 1180px;
+    height: 56px;
+    position: absolute;
+    left: 46px;
+    bottom: 34px;
+}
+.select_box{
+    width: 205px;
+    height: 56px;
+    margin-right: 10px;
+    border-bottom: 2px solid #5c5f67;
+    float: left;
+}
+#go_check{
+    width: 100px;
+    height: 56px;
+    float: left;
+    border-radius: 4px;
+}
+.go_check_active{
+    background-color: #d60815;
+}
+#go_check:hover{
+    filter: brightness(0.8);
+}
+#go_check button{
+    display: block;
+    width: 100px;
+    height: 56px;
+    line-height: 56px;
+    text-align: center;
+    font-size: 18px;
+    background-color: #6d6e71;
+    border-radius: 4px;
+    cursor: pointer;
+}
+#go_check button span{
+    color: #fff;
+}
+#go_station{
+    width: 160px;
+    height: 50px;
+    outline: none;
+    font-size: 16px;
+    margin-left: 8px;
+    float: left;
+    margin-top: 6px;
+}
+#go_station::placeholder {
+    color: #000;
+    font-size: 16px; /* 원하는 플레이스홀더 글자색으로 변경 */
+}
+#destination{
+    width: 160px;
+    height: 50px;
+    outline: none;
+    font-size: 16px;
+    margin-left: 8px;
+    float: left;
+    margin-top: 6px;
+}
+#destination::placeholder{
+    color: #000;
+    font-size: 16px;
+}
+#boarding_date{
+    width: 160px;
+    height: 50px;
+    outline: none;
+    font-size: 16px;
+    margin-left: 8px;
+    float: left;
+    margin-top: 6px;
+    font-size: 14px;
+    pointer-events: none;
+}
+#boarding_date::placeholder{
+    color: #000;
+    font-size: 16px;
+}
+#passenger{
+    width: 160px;
+    height: 50px;
+    outline: none;
+    font-size: 16px;
+    margin-left: 8px;
+    float: left;
+    margin-top: 6px;
+}
+#passenger::placeholder{
+    color: #000;
+    font-size: 16px;
+}
+#seat_class{
+    width: 160px;
+    height: 50px;
+    outline: none;
+    font-size: 16px;
+    margin-left: 8px;
+    float: left;
+    margin-top: 6px;
+}
+#seat_class::placeholder{
+    color: #000;
+    font-size: 16px;
+}
+.i_wrap{
+    float: left;
+    margin-top: 20px;
+    margin-left: 15px;
+}
+.i_wrap i{
+    font-size: 22px;
+    opacity: 0.5;
+}
+.air_icon{
+    margin-left: 10px;
+}
+.air_icon i{
+    font-size: 19px;
 }
 /* -----------------------carousel_wrap----------------------------------- */
 #recommend_travel{
@@ -435,4 +588,468 @@ body.dark-overlay {
     float: left;
     margin-top: 100px;
     background: url(../img/ext_img.jpeg);
+}
+#ext_service_small_wrap{
+    width: 1280px;
+    height: 605px;
+    margin: auto;
+}
+#alliance_wrap{
+    width: 1280px;
+    height: 270px;
+    position: relative;
+}
+#alliance_wrap h2{
+    position: absolute;
+    left: 6%;
+    bottom: 50%;
+    font-size: 38px;
+}
+#alliance_wrap span{
+    font-size: 18px;
+    color: #000;
+    position: absolute;
+    left: 6%;
+    bottom: 36%;
+}
+#alliance_menu_wrap{
+    width: 1280px;
+    height: 270px;
+}
+#alliance_menu_wrap ul{
+    width: 1280px;
+    height: 270px;
+    display: flex;
+    justify-content: space-between;
+}
+#alliance_menu_wrap ul li{
+    width: 230px;
+    height: 270px;
+    background-color: rgba(255,255,255,.9);
+    box-sizing: border-box;
+}
+.alliance_box_wrap{
+    width: 230px;
+    height: 270px;
+}
+.icon_wrap{
+    width: 100px;
+    height: 140px;
+    float: left;
+   margin-left: 65px;
+    position: relative;
+}
+.icon_wrap img{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+.text_wrap{
+    width: 230px;
+    height: 20px;
+    float: left;
+   margin-bottom: 15px;
+}
+.text_wrap span{
+    display: block;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 700;
+    color: #000;
+}
+.small_text_wrap01{
+    width: 230px;
+    height: 20px;
+    float: left;
+}
+.small_text_wrap01 span{
+  display: block;
+  text-align: center;
+    font-size: 14px;
+    color: #151515;;
+}
+.small_text_wrap02{
+    width: 230px;
+    height: 20px;
+    float: left;
+}
+.small_text_wrap02 span{
+  display: block;
+  text-align: center;
+    font-size: 14px;
+    color: #151515;;
+}
+#alliance_menu_wrap ul li:hover{
+    border: 3px solid red;
+}
+/* --------------------quick_secret_menu------------------------------------------- */
+#main_go_secret_menu_wrap{
+    width: 960px;
+    height: 550px;
+    position: absolute;
+    left: 12%;
+    bottom: -306%;
+    display: none;
+}
+#main_go_secret_menu_small_wrap{
+    width: 960px;
+    height: 550px;
+    position: relative;
+    background-color: #fff;
+}
+#main_go_secret_menu_wrap i{
+    position: absolute;
+    right: 0;
+    top: -53px;
+    font-size: 25px;
+    cursor: pointer;
+}
+#go_box_wrap{
+    width: 800px;
+    height: 500px;
+    margin-left: 80px;
+    padding-top: 25px;
+}
+#go_box_title{
+    font-size: 24px;
+    float: left;
+    margin-bottom: 5px;
+}
+#go_box_title2{
+    width: 800px;
+    height: 32px;
+    font-size: 24px;
+    float: left;
+    margin-bottom: 5px;
+}
+#destination_title{
+    width: 800px;
+    height: 32px;
+    font-size: 24px;
+    float: left;
+    font-weight: 500;
+    margin-left: 50px;
+    margin-top: 25px;
+}
+#go_menu_table{
+    width: 800px;
+    height: 205px;
+}
+#go_menu_table tbody{
+    width: 800px;
+    height: 200px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+#go_menu_table tr{
+    width: 350px;
+    box-sizing: border-box;
+}
+#go_menu_table tr td{
+    width: 350px;
+    height: 100%;
+    padding-right: 10px;
+    padding-left: 10px;
+    background-color: rgba(0, 0, 0, .1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#go_menu_table tr td:hover{
+    background-color: rgba(0, 0, 0, .3);
+    cursor: pointer;
+}
+#go_menu_table span{
+    font-size: 15px;
+}
+#world_air_menu{
+    width: 300px;
+    height: 220px;
+    background-color: rgba(0, 0, 0, .1);
+    float: left;
+    margin-left: 25px;
+    border-right: 1px solid #000;
+    cursor: pointer;
+}
+#world_air_menu li{
+    width: 300px;
+    height: 36px;
+    line-height: 36px;
+}
+#world_air_menu li:hover{
+     background-color: rgba(0, 0, 0, .3);
+}
+#world_air_secret_menu{
+    width: 455px;
+    height: 220px;
+    float: left;
+    margin-left: 15px;
+}
+#world_air_secret_menu ul{
+    width: 450px;
+    height: 220px;
+    cursor: pointer;
+}
+#world_air_secret_menu ul li{
+    width: 455px;
+    height: 36px;
+    line-height: 36px;
+}
+#world_air_secret_menu ul li:hover{
+    background-color: rgba(0, 0, 0, .3);
+}
+.secret_first{
+    background-color: rgba(0, 0, 0, .1);
+}
+#southeast_asia{
+    display: none;
+}
+#americas{
+    display: none;
+}
+#europe{
+    display: none;
+}
+#oceania{
+    display: none;
+}
+#central_asia{
+    display: none;
+}
+#northeast_asia2{
+    display: none;
+}
+#southeast_asia2{
+    display: none;
+}
+#americas2{
+    display: none;
+}
+#europe2{
+    display: none;
+}
+#oceania2{
+    display: none;
+}
+#central_asia2{
+    display: none;
+}
+#destination_secret{
+    width: 900px;
+    height: 350px;
+    background-color: #fff;
+    position: absolute;
+    left: 180px;
+    bottom: -197%;
+    display: none;
+}
+#destination_air{
+    width: 300px;
+    height: 252px;
+    float: left;
+    margin-left: 50px;
+    margin-top: 5px;
+    border-right: 1px solid #000;
+}
+#destination_air li{
+    width: 300px;
+    height: 36px;
+    line-height: 36px;
+    background-color: rgba(0, 0, 0, .1);
+    cursor: pointer;
+}
+#destination_air_secret{
+    width: 490px;
+    height: 256px;
+    float: left;
+    margin-left: 10px;
+}
+#destination_air_secret ul{
+    width: 490px;
+    height: 252px;
+    float: left;
+    margin-top: 5px;
+    cursor: pointer;
+}
+#destination_air_secret ul li{
+    width: 490px;
+    height: 36px;
+    line-height: 36px;
+}
+#destination_air_secret ul li:hover{
+    background-color: rgba(0, 0, 0, .3);
+}
+#destination_air li:hover{
+    background-color: rgba(0, 0, 0, .3);
+}
+#passenger_secret{
+    width: 1200px;
+    height: 250px;
+    position: absolute;
+    left: 47px;
+    bottom: -142%;
+    background-color: #fff;
+    display: none;
+}
+#passenger_secret_title{
+    font-size: 24px;
+    float: left;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+#passenger_secret_wrap{
+    width: 1100px;
+    height: 220px;
+    margin-left: 50px;
+    margin-top: 15px;
+    position: relative;
+}
+#passenger_secret_title_sub{
+    width: 1100px;
+    height: 25px;
+    float: left;
+    margin-top: 5px;
+    margin-bottom: 15px;
+} 
+#passenger_secret_title_sub ul{
+    display: flex;
+    justify-content: space-between;
+}
+#passenger_secret_title_sub ul li{
+    width: 320px;
+    height: 25px;
+}
+#passenger_secret_title_sub ul li span{
+    font-size: 20px;
+}
+.sub_age{
+    color: #666;
+    font-size: 18px !important;
+}
+#passenger_secret_select{
+    width: 1100px;
+    height: 45px;
+    float: left;
+}
+#passenger_secret_select2{
+    width: 1100px;
+    height: 45px;
+}
+#passenger_secret_select2 ul{
+    display: flex;
+    justify-content: space-between;
+}
+#passenger_secret_select2 ul li{
+    width: 320px;
+    height: 45px;
+}
+#passenger_secret_select2 ul li i{
+    width: 30px;
+    height: 45px;
+    line-height: 45px;
+    float: left;
+    cursor: pointer;
+    text-align: center;
+    font-size: 22px;
+}
+#passenger_secret_select2 ul li input{
+    width: 260px;
+    height: 45px;
+    float: left;
+    text-align: center;
+    font-size: 25px;
+}
+#select_passenger_check_btn{
+    width: 100px;
+    height: 40px;
+    background-color: #6d6e71;
+    color: #fff;
+    position: absolute;
+    right: -1%;
+    bottom: 1%;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+   
+}
+#select_passenger_check_btn:hover{
+    filter: brightness(0.8);
+}
+#seat_class_secret{
+    width: 1200px;
+    height: 216px;
+    position: absolute;
+    left: 47px;
+    bottom: -124%;
+    background-color: #fff;
+    display: none;
+}
+#seat_class_secret_small_wrap{
+    width: 1100px;
+    height: 170px;
+    margin-left: 50px;
+    margin-top: 15px;
+    position: relative;
+}
+#seat_class_secret_title{
+    width: 1100px;
+    height: 36px;
+    font-size: 24px;
+    float: left;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+#seat_class_secret_title_sub{
+    width: 1100px;
+    height: 23px;
+    font-size: 18px;
+    float: left;
+    margin-bottom: 5px;
+}
+#select_seat_class{
+    width: 1100px;
+    height: 60px;
+    float: left;
+}
+#select_seat_class ul{
+    width: 1100px;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+}
+#select_seat_class ul li{
+    width: 363px;
+    height: 60px;
+    background-color: #f3f3f3;
+    line-height: 60px;
+    text-align: center;
+    font-size: 18px;
+    cursor: pointer;
+    color: #555;
+}
+#select_seat_class ul li:hover{
+    border: 1px solid #000;
+    background-color: #fff;
+}
+.seat_class_active{
+    border: 1px solid #d60815 !important;
+    color: #000 !important;
+    background-color: #fff !important;
+}
+#seat_class_check_btn{
+    width: 100px;
+    height: 40px;
+    background-color: #6d6e71;
+    color: #fff;
+    position: absolute;
+    right: 0%;
+    bottom: -8%;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#seat_class_check_btn:hover{
+    filter: brightness(0.8);
 }
